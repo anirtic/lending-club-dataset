@@ -143,7 +143,7 @@ def train_test_sets(X: pd.DataFrame, label_col: str) -> tuple:
     labels = X[label_col]
     predictors = X.drop(label_col, axis=1)
     X_train, X_test, y_train, y_test = train_test_split(
-        predictors, labels, test_size=0.2, random_state=42
+        predictors, labels, test_size=0.1, random_state=42
     )
     return X_train, X_test, y_train, y_test
 

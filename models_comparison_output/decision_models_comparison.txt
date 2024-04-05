@@ -1,0 +1,47 @@
+Random Forest Performance:
+              precision    recall  f1-score   support
+
+           0       0.99      0.95      0.97    856581
+           1       0.81      0.97      0.89    210399
+
+    accuracy                           0.95   1066980
+   macro avg       0.90      0.96      0.93   1066980
+weighted avg       0.96      0.95      0.95   1066980
+
+ROC AUC: 0.9591058919692108
+----------------------------------------------------------
+XGBoost Performance:
+              precision    recall  f1-score   support
+
+           0       1.00      0.95      0.97    856581
+           1       0.82      0.98      0.89    210399
+
+    accuracy                           0.95   1066980
+   macro avg       0.91      0.97      0.93   1066980
+weighted avg       0.96      0.95      0.96   1066980
+
+ROC AUC: 0.965149136827544
+----------------------------------------------------------
+Decision Tree Performance:
+              precision    recall  f1-score   support
+
+           0       0.99      0.97      0.98    856581
+           1       0.88      0.96      0.92    210399
+
+    accuracy                           0.97   1066980
+   macro avg       0.93      0.96      0.95   1066980
+weighted avg       0.97      0.97      0.97   1066980
+
+ROC AUC: 0.964457982524942
+----------------------------------------------------------
+Model Ensembler Performance:
+              precision    recall  f1-score   support
+
+           0       0.99      0.97      0.98    856581
+           1       0.88      0.96      0.92    210399
+
+    accuracy                           0.97   1066980
+   macro avg       0.93      0.96      0.95   1066980
+weighted avg       0.97      0.97      0.97   1066980
+
+ROC AUC: 0.964457982524942

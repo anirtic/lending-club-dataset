@@ -1,14 +1,15 @@
-# Loan Approval Prediction
+# Loan Approval Classification: Grade / Subgrade / Interest Rate Prediction
 
-Loan Approval Prediction is a project that aims to predict the approval status of loan applications based on various features such as applicant information, loan amount, credit score, and more. The project employs machine learning models for this purpose.
-
+Loan Approval Prediction is a project aimed at predicting the approval status of loan applications based on various features such as applicant information, loan amount, credit score, and more. In addition to approval classification, the model also classifies loans by grade/subgrade and predicts the interest rate for accepted loans.
 ## Project Files and Folders
 
+- `models_comparison_output/`: Contains saved .txt files with various models' performance metrics. This is used in the notebook to prevent the need to re-run all the code every time.
+- `usshapefiles/`: Folder with shapefiles for mapping the United States and its states.
+- `app/`: Contains the FastAPI application and a Dockerfile for creating a Docker image. The app loads models and scalers from a GCP bucket.
+- `testdata`: Contains testing data for batch endpoints for decision and grade/subgrade/interest rate models.
+- `functions.py`: External functions used in the analysis.
 - `Project 3.3.ipynb`: Jupyter Notebook containing the project code.
-- `usshapefiles/`: Folder with shapefiles for mapping the US country and states.
-- `4models/`: Folder containing machine learning models in .pkl format, as well as data preprocessing components such as scaler. Also, includes a FastAPI application and Dockerfile for creating a docker image.
-- `testdata`: Folder containing testing data for decision and grade/subgrade/int.rate models.
-- `functions.py` External functions used in analysis
+- `stream_mode_test`: Notebook used for testing stream mode endpoints by passing a single line of JSON data.
 
 #### Usage
 Running the Jupyter Notebook 
@@ -16,10 +17,16 @@ Running the Jupyter Notebook
 2. Follow the instructions within the notebook to explore the project, conduct data analysis, and build machine learning models.
 
 #### Using the FastAPI Application
-1. Open https://tcs33-iflehjyjlq-uc.a.run.app/docs on a browser.
-2. For decision model choose /decision end point select button "Try it out" and upload the file located on /testdata/X_testdata_decision.csv and click button "Execute".
-3. For grade/subgrade/interest_rate model choose /gradesnrate end point select button "Try it out" and upload the file located on /testdata/X_testdata_gr_sg_intr.csv and click button "Execute".
+#### Batch mode:
+1. Open https://lendingc33-26ulqxbbaq-uc.a.run.app/docs in a browser.
+2. For the decision model, choose the /decision-batch endpoint, select the "Try it out" button, and upload the file located at /testdata/X_testdata_decision.csv, then click the "Execute" button.
+3. For the grade/subgrade/interest rate model, choose the /gradesnrate endpoint, select the "Try it out" button, and upload the file located at /testdata/X_testdata_gr_sg_intr.csv, then click the "Execute" button.
 
+##### Stream mode:
+1. Open `stream_mode_test` notebook and follow the instructions there.
 
-#### Note:
-I was not able to upload model_subgrade.pkl file into github, because it weights more than 25MB. Please write me a message on discord, so I could share it there, if needed. Thanks.
+### Performance:
+#### Loan Decision Model:
+Able to handle a single request on average in 210ms, resulting in 285 requests per minute.
+#### Grade / Subgrade / Interest rate Model:
+Able to handle a single request on average in 300ms, resulting in 200 requests per minute.
